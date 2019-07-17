@@ -2,7 +2,7 @@
 <?php
 
 require __DIR__.'/vendor/autoload.php';
-define('__ROOT__', realpath(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "../");
+define('__ROOT__', realpath(dirname(__FILE__)) . DIRECTORY_SEPARATOR);
 
 $console = new src\Console($argv);
 $console -> run();

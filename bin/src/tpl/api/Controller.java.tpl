@@ -1,6 +1,6 @@
 package {{ group }}.{{ module }}.web.controller;
 
-import {{ group }}.common.Result;
+import com.clothesmake.common.Result;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

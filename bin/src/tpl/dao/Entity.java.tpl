@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="{{ module }}")
-public class {{ Umodule }}Entity implements Serializable {
+@Table(name="{{ name }}")
+public class {{ Uname }}Entity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class {{ Umodule }}Entity implements Serializable {
      */
     private Integer id;
 
-    public {{ Umodule }}Entity() {
+    public {{ Uname }}Entity() {
     }
 
 }

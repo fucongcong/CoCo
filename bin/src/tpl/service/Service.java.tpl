@@ -1,7 +1,7 @@
 package {{ group }}.{{ module }}.api;
 
-import {{ group }}.{{ module }}.dto.{{ Umodule }}Dto;
+import {{ group }}.{{ module }}.dto.{{ Uname }}Dto;
 
-public interface {{ Umodule }}Service {
-    {{ Umodule }}Dto get{{ Umodule }}(int id);
+public interface {{ Uname }}Service {
+    {{ Uname }}Dto get{{ Uname }}(int id);
 }

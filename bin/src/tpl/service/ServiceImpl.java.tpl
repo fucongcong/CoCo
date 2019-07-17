@@ -1,24 +1,24 @@
 package {{ group }}.{{ module }}.service;
 
-import {{ group }}.{{ module }}.api.{{ Umodule }}Service;
-import {{ group }}.{{ module }}.dao.entity.{{ Umodule }}Entity;
-import {{ group }}.{{ module }}.dao.repository.{{ Umodule }}Repository;
-import {{ group }}.{{ module }}.dto.{{ Umodule }}Dto;
-import {{ group }}.{{ module }}.mapper.{{ Umodule }}Mapper;
+import {{ group }}.{{ module }}.api.{{ Uname }}Service;
+import {{ group }}.{{ module }}.dao.entity.{{ Uname }}Entity;
+import {{ group }}.{{ module }}.dao.repository.{{ Uname }}Repository;
+import {{ group }}.{{ module }}.dto.{{ Uname }}Dto;
+import {{ group }}.{{ module }}.mapper.{{ Uname }}Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class {{ Umodule }}ServiceImpl implements {{ Umodule }}Service {
+public class {{ Uname }}ServiceImpl implements {{ Uname }}Service {
     @Autowired
-    protected {{ Umodule }}Repository {{ module }}Repository;
+    protected {{ Uname }}Repository {{ name }}Repository;
 
     @Autowired
-    protected {{ Umodule }}Mapper {{ module }}Mapper;
+    protected {{ Uname }}Mapper {{ name }}Mapper;
 
-    public {{ Umodule }}Dto get{{ Umodule }}(int id) {
-        {{ Umodule }}Entity {{ module }}Entity = {{ module }}Repository.findById(id).get();
+    public {{ Uname }}Dto get{{ Uname }}(int id) {
+        {{ Uname }}Entity {{ name }}Entity = {{ name }}Repository.findById(id).get();
 
-        return  {{ module }}Mapper.{{ module }}To{{ Umodule }}Dto({{ module }}Entity);
+        return  {{ name }}Mapper.{{ name }}To{{ Uname }}Dto({{ name }}Entity);
     }
 }

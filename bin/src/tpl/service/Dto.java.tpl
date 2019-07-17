@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class {{ Umodule }}Dto {
+public class {{ Uname }}Dto {
 
     private Integer id;
 }
