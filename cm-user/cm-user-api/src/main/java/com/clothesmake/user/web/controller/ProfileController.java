@@ -1,12 +1,12 @@
-package {{ group }}.{{ module }}.web.controller;
+package com.clothesmake.user.web.controller;
 
 import com.clothesmake.common.Result;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/{{ module }}")
-public class {{ Uname }}Controller {
-    @RequestMapping(value = "/{{ name }}", method = RequestMethod.GET)
+@RequestMapping("/api/user")
+public class ProfileController {
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public Result<String> index() {
         return Result.success("hello world");
     }

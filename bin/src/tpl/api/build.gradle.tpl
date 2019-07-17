@@ -26,7 +26,7 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    compile project(":{{ modulePrefix }}-common")
+    compile project(":cm-common")
     compile project(":{{ modulePrefix }}-{{ module }}:{{ modulePrefix }}-{{ module }}-service")
 }
 

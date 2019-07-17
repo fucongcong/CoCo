@@ -17,7 +17,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
     compile group: 'org.springframework', name: 'spring-core', version: '5.1.7.RELEASE'
-    compile project(":{{ modulePrefix }}-{{ group }}:{{ modulePrefix }}-{{ group }}-dao")
+    compile project(":{{ modulePrefix }}-{{ module }}:{{ modulePrefix }}-{{ module }}-dao")
 }
 
 tasks.withType(JavaCompile) {

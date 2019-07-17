@@ -4,5 +4,5 @@ _/ ___\/  _ \_/ ___\/  _ \
  \___  >____/ \___  >____/
      \/           \/
 
-${AnsiColor.BRIGHT_BLUE}:: CoCo 🤓  :: Running Spring Boot ${spring-boot.version} ::
+${AnsiColor.BRIGHT_BLUE}:: CoCo 🤓  应用({{ modulePrefix }}-{{ module }}):: Running Spring Boot ${spring-boot.version} ::
 :: https://github.com/fucongcong ::${AnsiColor.DEFAULT}

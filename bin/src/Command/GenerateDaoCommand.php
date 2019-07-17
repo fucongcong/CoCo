@@ -5,7 +5,7 @@ namespace src\Command;
 use src\Command;
 use src\Config;
 
-class GenerateApiCommand extends Command
+class GenerateDaoCommand extends Command
 {   
     protected $group;
 
@@ -41,26 +41,36 @@ class GenerateApiCommand extends Command
         $modulePrefix = $this->modulePrefix;
         $name = $this->name;
         $module = $this->module;
-        $this->outPut("开始初始化{$modulePrefix}-{$module}/{$modulePrefix}-{$module}-api:{$name}");
+        $this->outPut("开始初始化{$modulePrefix}-{$module}/{$modulePrefix}-{$module}-dao:{$name}");
 
         $dir = __ROOT__."../{$modulePrefix}-{$module}";
-        $apiDir = __ROOT__."../{$modulePrefix}-{$module}/{$modulePrefix}-{$module}-api";
+        $daoDir = __ROOT__."../{$modulePrefix}-{$module}/{$modulePrefix}-{$module}-dao";
         $groupname = implode("/", explode(".", $group));
 
-        if (!is_dir($apiDir."/src/main/java/{$groupname}/{$module}/web")) {
+        if (!is_dir($daoDir."/src/main/java/{$groupname}/{$module}/dao")) {
             $this->error("module:{$modulePrefix}-{$module}不存在...初始化失败，请先执行 generate:module");
         }
 
-        if (!is_dir($apiDir."/src/main/java/{$groupname}/{$module}/web/controller")) {
-            mkdir($apiDir."/src/main/java/{$group}/{$module}/web/controller", 0755, true);
+        if (!is_dir($daoDir."/src/main/java/{$groupname}/{$module}/dao/entity")) {
+            mkdir($daoDir."/src/main/java/{$group}/{$module}/dao/entity", 0755, true);
+        }
+        if (!is_dir($daoDir."/src/main/java/{$groupname}/{$module}/dao/repository")) {
+            mkdir($daoDir."/src/main/java/{$group}/{$module}/dao/repository", 0755, true);
         }
 
-        if (file_exists($apiDir."/src/main/java/{$groupname}/{$module}/web/controller/".ucfirst($name)."Controller.java")) {
-            $this->error(ucfirst($name)."Controller.java 已存在");
+        if (file_exists($daoDir."/src/main/java/{$groupname}/{$module}/dao/entity/".ucfirst($name)."Entity.java")) {
+            $this->outPut(ucfirst($name)."Entity.java 已存在");
+        } else {
+            $data = $this->getFile("dao/Entity.java.tpl");
+            file_put_contents($daoDir."/src/main/java/{$groupname}/{$module}/dao/entity/".ucfirst($name)."Entity.java", $data);
         }
 
-        $data = $this->getFile("api/Controller.java.tpl");
-        file_put_contents($apiDir."/src/main/java/{$groupname}/{$module}/web/controller/".ucfirst($name)."Controller.java", $data);
+        if (file_exists($daoDir."/src/main/java/{$groupname}/{$module}/dao/repository/".ucfirst($name)."Repository.java")) {
+            $this->outPut(ucfirst($name)."Repository.java 已存在");
+        } else {
+            $data = $this->getFile("dao/Repository.java.tpl");
+            file_put_contents($daoDir."/src/main/java/{$groupname}/{$module}/dao/repository/".ucfirst($name)."Repository.java", $data);
+        }
 
         $this->outPut("初始化完成");
     }
