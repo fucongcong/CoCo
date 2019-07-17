@@ -1,0 +1,8 @@
+runtime
+.DS_Store
+.gradle
+.idea
+out
+build
+**/build
+**/out

@@ -1,0 +1,11 @@
+subprojects {
+    group 'com.clothesmake'
+    version '1.0.0'
+
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+    }
+}
+

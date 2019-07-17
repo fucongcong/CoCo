@@ -1,0 +1,30 @@
+{
+  "name": "cm-java-console",
+  "description": "The Java Console By Php",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+      "psr-4": {
+          "src\\": "src/"
+      }
+  },
+  "authors": [
+    {
+      "name": "Fu congcong",
+      "email": "coco@jiaoshubang.com",
+      "homepage": "https://github.com/fucongcong",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "symfony/filesystem": "~2.7.0",
+    "symfony/var-dumper": "~3.3.13"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  }
+}
