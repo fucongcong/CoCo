@@ -1,5 +1,10 @@
 
 ### 脚手架使用
+脚手架是有Php脚本写的，依赖环境
+- php >= 7.0
+- composer
+
+进入bin目录，执行 composer install, 然后执行 ./console 或者在根目录执行 bin/console
 
 ``` 
               
