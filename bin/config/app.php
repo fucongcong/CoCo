@@ -2,6 +2,6 @@
 
 return [
     //generator config
-    'group' => "com.jiaoshubang",
-    'modulePrefix' => "jsb"
+    'group' => "com.clothesmake",
+    'modulePrefix' => "cm"
 ];
