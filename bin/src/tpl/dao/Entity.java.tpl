@@ -1,20 +1,24 @@
 package {{ group }}.{{ module }}.dao.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
-
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import lombok.Data;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name="{{ name }}")
+@DynamicInsert
+@DynamicUpdate
+@Table(name="{{ tableName }}")
 public class {{ Uname }}Entity implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    /**
+    * id
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    /**
-     * id
-     */
     private Integer id;
 
     public {{ Uname }}Entity() {

@@ -91,6 +91,7 @@ class GenerateModuleCommand extends Command
             $daoDir."/src/main/java/{$groupname}/{$module}/dao/entity",
             $daoDir."/src/main/java/{$groupname}/{$module}/dao/repository",
             $apiDir."/src/main/java/{$groupname}/{$module}/web/controller",
+            $apiDir."/src/main/java/{$groupname}/{$module}/web/exception",
             $apiDir."/src/main/resources/db/migration",
         ];
 
@@ -109,6 +110,9 @@ class GenerateModuleCommand extends Command
 
         $data = $this->getFile("api/Application.java.tpl");
         file_put_contents($apiDir."/src/main/java/{$groupname}/{$module}/Application.java", $data);
+
+        $data = $this->getFile("api/ExceptionHandler.java.tpl");
+        file_put_contents($apiDir."/src/main/java/{$groupname}/{$module}/web/exception/ExceptionHandler.java", $data);
 
         if (file_exists($apiDir."/src/main/java/{$groupname}/{$module}/web/controller/".ucfirst($name)."Controller.java")) {
             $this->outPut(ucfirst($name)."Controller.java 已存在");
@@ -160,7 +164,7 @@ class GenerateModuleCommand extends Command
         }
 
         $data = $this->getFile("settings.gradle.tpl");
-        file_put_contents(__ROOT__."../settings.gradle", $data, FILE_APPEND);
+        file_put_contents(__ROOT__."../settings.gradle", PHP_EOL.$data, FILE_APPEND);
 
         $this->outPut("初始化完成，Refresh Your Gradle project");
     }

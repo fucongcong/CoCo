@@ -9,6 +9,9 @@ spring.datasource.password=123
 
 spring.devtools.restart.enabled=true
 
+spring.mvc.throw-exception-if-no-handler-found=true
+spring.resources.add-mappings=false
+
 ### 日志
 
 debug=false
