@@ -1,0 +1,49 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+}
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+
+//热重载
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version: '5.1.7.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    compile 'mysql:mysql-connector-java'
+
+    implementation 'com.auth0:java-jwt:3.8.1'
+
+    compile "org.flywaydb:flyway-core:5.2.4"
+    compile "org.apache.commons:commons-lang3"
+    compile("org.springframework.boot:spring-boot-devtools")
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile project(":cm-common")
+    compile project(":cm-user:cm-user-service")
+}
+
+//打包
+jar {
+    enabled = true
+}
+
+bootJar {
+    classifier = 'boot'
+    mainClassName = 'com.clothesmake.user.Application'
+
+    launchScript {
+        properties 'logFilename': 'cm-user.log'
+    }
+}
