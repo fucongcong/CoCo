@@ -27,7 +27,7 @@ class Console
             'help' => '初始化一个自定义service(moduleName:模块名, name:名称,以驼峰命名)'
         ],
         'generate:dao' => [
-            'args' => 'moduleName:name',
+            'args' => 'moduleName:name --table=表名称(可不填)',
             'command' => 'src\Command\GenerateDaoCommand',
             'help' => '初始化一个自定义dao(moduleName:模块名, name:名称,以驼峰命名)'
         ]

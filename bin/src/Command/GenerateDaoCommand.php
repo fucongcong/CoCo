@@ -15,6 +15,8 @@ class GenerateDaoCommand extends Command
 
     protected $module;
 
+    protected $tableName;
+
     public function init()
     {   
         $this->group = Config::get("app::group");
@@ -36,6 +38,16 @@ class GenerateDaoCommand extends Command
         if (!preg_match('/^[a-zA-Z\s]+$/', $this->name)) {
             $this->error("名称只能为英文！");
         }
+
+        $tableName = $this->name;
+        if (isset($input[1])) {
+            list($arg, $tableName) = explode("--table=", $input[1]);
+            if ($tableName == "") {
+                $tableName = $this->name;
+            }
+        }
+        //$this->checkTable($tableName);
+        $this->tableName = $tableName;
 
         $group = $this->group;
         $modulePrefix = $this->modulePrefix;
@@ -88,6 +100,7 @@ class GenerateDaoCommand extends Command
         $data = str_replace("{{ module }}", $this->module, $data);
         $data = str_replace("{{ modulePrefix }}", $this->modulePrefix, $data);
         $data = str_replace("{{ name }}", $this->name, $data);
+        $data = str_replace("{{ tableName }}", $this->tableName, $data);
         return str_replace("{{ Uname }}", ucfirst($this->name), $data);
     }
 }

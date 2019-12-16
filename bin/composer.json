@@ -19,6 +19,7 @@
   "require": {
     "php": ">=7.0",
     "symfony/filesystem": "~2.7.0",
+    "doctrine/dbal": "~2.5.12",
     "symfony/var-dumper": "~3.3.13"
   },
   "repositories": {

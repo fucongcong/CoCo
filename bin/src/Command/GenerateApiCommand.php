@@ -78,6 +78,7 @@ class GenerateApiCommand extends Command
         $data = str_replace("{{ module }}", $this->module, $data);
         $data = str_replace("{{ modulePrefix }}", $this->modulePrefix, $data);
         $data = str_replace("{{ name }}", $this->name, $data);
+        $data = str_replace("{{ tableName }}", $this->name, $data);
         return str_replace("{{ Uname }}", ucfirst($this->name), $data);
     }
 }

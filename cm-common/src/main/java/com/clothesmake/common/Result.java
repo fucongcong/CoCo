@@ -33,6 +33,6 @@ public class Result<T> implements Serializable{
     }
 
     public static <T> Result<T> error(int code) {
-        return new Result<>(code, "error", null);
+        return new Result<>(code, "exception", null);
     }
 }
